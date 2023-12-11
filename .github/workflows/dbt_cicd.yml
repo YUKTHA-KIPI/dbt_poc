@@ -7,6 +7,7 @@ on:
      - dbt
 
 env:
+    DBT_PROFILES_DIR: ./
     DBT_SNOWFLAKE_ACCOUNT: ${{ secrets.DBT_SNOWFLAKE_ACCOUNT }}
     DBT_SNOWFLAKE_USERNAME: ${{ secrets.DBT_SNOWFLAKE_USERNAME }}
     DBT_SNOWFLAKE_PW: ${{ secrets.DBT_SNOWFLAKE_PW }}
