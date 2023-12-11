@@ -1,3 +1,35 @@
+bt_hol:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      ######## Please replace with your Snowflake account name
+      account: cr75411.eu-west-3.aws
+      
+      user: dbt_user
+      ######## Please replace with your Snowflake dbt user password
+      password: dbtPWD@11
+      
+      role: dbt_dev_role
+      database: dbt_hol_dev
+      warehouse: dbt_dev_wh
+      schema: public
+      threads: 200
+    prod:
+      type: snowflake
+      ######## Please replace with your Snowflake account name
+      account: cr75411.eu-west-3.aws
+      
+      user: dbt_user
+      ######## Please replace with your Snowflake dbt user password
+      password: dbtPWD@11
+      
+      role: dbt_prod_role
+      database: dbt_hol_prod
+      warehouse: dbt_prod_wh
+      schema: public
+      threads: 200
+
 default:
      outputs:
        dev:
