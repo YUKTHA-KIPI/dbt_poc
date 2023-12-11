@@ -33,7 +33,7 @@ jobs:
 
        # dbt related commands here - run use --target prod/dev to run for specific environments
             - name: Run dbt models
-              run: dbt run
+              run: dbt run --target dev
 
             - name: Test dbt models
-              run: dbt test
+              run: dbt test --target dev
