@@ -1,4 +1,4 @@
-bt_hol:
+dbt_hol:
   target: dev
   outputs:
     dev:
