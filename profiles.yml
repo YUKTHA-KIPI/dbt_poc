@@ -4,7 +4,7 @@ dbt_hol:
     dev:
       type: snowflake
       ######## Please replace with your Snowflake account name
-      account: cr75411.eu-west-3.aws
+      account: zr43462.eu-central-1
       
       user: dbt_user
       ######## Please replace with your Snowflake dbt user password
@@ -20,7 +20,7 @@ dbt_hol:
     prod:
       type: snowflake
       ######## Please replace with your Snowflake account name
-      account: cr75411.eu-west-3.aws
+      account: zr43462.eu-central-1
       
       user: dbt_user
       ######## Please replace with your Snowflake dbt user password
@@ -33,7 +33,22 @@ dbt_hol:
       threads: 200
       client_session_keep_alive: False
       query_tag: github_action_query
-
+    view:
+      type: snowflake
+      ######## Please replace with your Snowflake account name
+      account: zr43462.eu-central-1
+      
+      user: dbt_user
+      ######## Please replace with your Snowflake dbt user password
+      password: dbtPWD@11
+      
+      role: dbt_dev_role
+      database: dbt_hol_dev
+      warehouse: dbt_dev_wh
+      schema: test
+      threads: 200
+      client_session_keep_alive: False
+      query_tag: github_action_query
 default:
      outputs:
        dev:
