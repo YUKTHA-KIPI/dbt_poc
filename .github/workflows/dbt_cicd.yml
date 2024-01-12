@@ -5,6 +5,8 @@ on:
      branches:
     # run on push to development branch
      - dbt
+     paths:
+     - 'models/example/**'
 
 env:
     DBT_PROFILES_DIR: ./
