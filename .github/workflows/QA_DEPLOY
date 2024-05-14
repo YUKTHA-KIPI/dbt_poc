@@ -1,0 +1,35 @@
+name: dbt_qa_deployment_job
+
+on:
+   push:
+    branches:
+       - QA
+       
+env:
+   DBT_PROFILES_DIR: ./
+   DBT_SNOWFLAKE_ACCOUNT: ${{ secrets.SF_ACCOUNT }}
+   DBT_SNOWFLAKE_USERNAME: ${{ secrets.SF_QA_USERNAME }}
+   DBT_SNOWFLAKE_PW: ${{ secrets.SF_QA_PASSWORD }}
+   
+jobs:
+   dbt_deploy_job:
+    name: dbt_qa_deploy_job
+    runs-on: ubuntu-latest
+
+    steps:
+       - name: Check out
+         uses: actions/checkout@master
+
+       - uses: actions/setup-python@v1
+         with:
+           python-version: "3.9.x"
+
+       - name: Install dependencies
+         run: |
+           pip install dbt-snowflake
+           dbt deps
+
+       # dbt related commands here - run use --target prod/qa/dev to run for specific environments
+       - name: Run dbt models
+         run: 
+            dbt run --target QA
