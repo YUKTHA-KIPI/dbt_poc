@@ -9,7 +9,7 @@
 {{config(
     materialized = 'dynamic_table',
     snowflake_warehouse = warehouse,
-    target_lag = '1 hour',
+    target_lag = '2 hour',
     on_configuration_change = 'apply'
 )}}
    WITH test AS (
