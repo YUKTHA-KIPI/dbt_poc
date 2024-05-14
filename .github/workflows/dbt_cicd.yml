@@ -1,41 +1,35 @@
 name: schedule_dbt_job
 
 on:
-    push:
-     branches:
-    # run on push to development branch
-     - dbt
-     paths:
-     - 'models/example/**'
-
+   push:
+    branches:
+       - QA
+       
 env:
-    DBT_PROFILES_DIR: ./
-    DBT_SNOWFLAKE_ACCOUNT: ${{ secrets.DBT_SNOWFLAKE_ACCOUNT }}
-    DBT_SNOWFLAKE_USERNAME: ${{ secrets.DBT_SNOWFLAKE_USERNAME }}
-    DBT_SNOWFLAKE_PW: ${{ secrets.DBT_SNOWFLAKE_PW }}
-    DBT_SNOWFLAKE_ROLE: ${{ secrets.DBT_SNOWFLAKE_ROLE }}
-
+   DBT_PROFILES_DIR: ./
+   DBT_SNOWFLAKE_ACCOUNT: ${{ secrets.SF_ACCOUNT }}
+   DBT_SNOWFLAKE_USERNAME: ${{ secrets.SF_QA_USERNAME }}
+   DBT_SNOWFLAKE_PW: ${{ secrets.SF_QA_PASSWORD }}
+   
 jobs:
-    schedule_dbt_job:
-        name: schedule_dbt_job
-        runs-on: ubuntu-latest
+   dbt_deploy_job:
+    name: dbt_qa_deploy_job
+    runs-on: ubuntu-latest
 
-        steps:
-            - name: Check out
-              uses: actions/checkout@master
+    steps:
+       - name: Check out
+         uses: actions/checkout@master
 
-            - uses: actions/setup-python@v1
-              with:
-                python-version: "3.9.x"
+       - uses: actions/setup-python@v1
+         with:
+           python-version: "3.9.x"
 
-            - name: Install dependencies
-              run: |
-                pip install dbt-snowflake 
-                dbt deps
+       - name: Install dependencies
+         run: |
+           pip install dbt-snowflake
+           dbt deps
 
-       # dbt related commands here - run use --target prod/dev to run for specific environments
-            - name: Run dbt models
-              run: dbt run --target dev --models 'models/example/**'
-
-           # - name: Test dbt models
-            #  run: dbt test --target dev
+       # dbt related commands here - run use --target prod/qa/dev to run for specific environments
+       - name: Run dbt models
+         run: 
+            dbt run --target QA
