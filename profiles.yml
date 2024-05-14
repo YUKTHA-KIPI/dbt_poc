@@ -1,18 +1,18 @@
 dbt_hol:
-  target: dev
+  target: QA
   outputs:
-    dev:
+    QA:
       type: snowflake
       ######## Please replace with your Snowflake account name
-      account: zr43462.eu-central-1
+      account: bm12759.ap-south-1.aws
       
-      user: dbt_user
+      user: AMBYINT_TEST
       ######## Please replace with your Snowflake dbt user password
-      password: dbtPWD@11
+      password: Ambyint1234
       
-      role: dbt_dev_role
-      database: dbt_hol_dev
-      warehouse: dbt_dev_wh
+      role: ACCOUNTADMIN
+      database: DBT
+      warehouse: COMPUTE_WH
       schema: public
       threads: 200
       client_session_keep_alive: False
