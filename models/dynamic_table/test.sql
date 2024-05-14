@@ -13,7 +13,7 @@
     on_configuration_change = 'apply'
 )}}
    WITH test AS (
-     select * from DBT.INFORMATION_SCHEMA.SCHEMATA 
+     select * from DBT.PUBLIC.SCHEMATA 
    )
    SELECT * FROM test
 
