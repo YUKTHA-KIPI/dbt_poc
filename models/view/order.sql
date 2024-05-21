@@ -1,4 +1,4 @@
-CREATE VIEW monthly_order_summary AS
+CREATE OR REPLACE VIEW monthly_order_summary AS
 SELECT 
     order_id,
     customer_id,
