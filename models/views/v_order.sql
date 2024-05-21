@@ -5,4 +5,4 @@ SELECT
     EXTRACT(MONTH FROM order_date) AS order_month,
     total_amount
 FROM 
-    orders;
+    DBT.PUBLIC.orders;

@@ -5,4 +5,4 @@ SELECT
     department_id,
     salary
 FROM 
-    employees;
+    DBT.PUBLIC.employees;
