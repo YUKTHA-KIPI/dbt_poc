@@ -6,3 +6,4 @@ SELECT
     total_amount
 FROM 
     DBT.PUBLIC.orders;
+    
