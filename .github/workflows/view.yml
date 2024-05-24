@@ -36,7 +36,7 @@ jobs:
 
        # dbt related commands here - run use --target prod/dev to run for specific environments
             - name: Run dbt models
-              run: dbt run --models state:modified --state .
+              run: dbt run --target view --models state:modified --state .
 
            # - name: Test dbt models
             #  run: dbt test --target dev
