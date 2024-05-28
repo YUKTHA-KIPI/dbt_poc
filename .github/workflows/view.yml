@@ -33,7 +33,7 @@ jobs:
               run: |
                 pip install dbt-snowflake 
                 dbt deps
-                dbt compile
+                dbt compile --target view
 
        # dbt related commands here - run use --target prod/dev to run for specific environments
 
