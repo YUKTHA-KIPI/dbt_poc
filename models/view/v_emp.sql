@@ -1,7 +1,7 @@
 with employee_details AS (
     SELECT 
     employee_id,
-    CONCAT(first_name,'  ', last_name) AS nameee,
+    CONCAT(first_name,'  ', last_name) AS nameeee,
     department_id,
     salary
 FROM 
