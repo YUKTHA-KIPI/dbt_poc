@@ -35,6 +35,12 @@ jobs:
                 dbt deps
 
        # dbt related commands here - run use --target prod/dev to run for specific environments
+            - name: dbt Compile
+              run: dbt compile
+
+            - name: dbt mv
+              run: mv -Force target/manifest.json . 
+              
             - name: Run dbt models
               run: dbt run --target view --models state:modified --state .
 
