@@ -33,7 +33,7 @@ jobs:
        - name: Run dbt models
          run: |
                     dbt compile
-                    mv -Force target/manifest.json .
+                    mv -f target/manifest.json .
                     dbt run --target QA
                     
             
