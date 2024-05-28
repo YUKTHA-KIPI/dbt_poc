@@ -30,10 +30,17 @@ jobs:
            dbt deps
 
        # dbt related commands here - run use --target prod/qa/dev to run for specific environments
+       - name: Run dbt compile
+         run: dbt compile
+         
+       - name: Upload compiled artifacts
+         uses: actions/upload-artifact@v3
+         with:
+          name: dbt-compiled-artifacts
+          path: target/
+          
        - name: Run dbt models
          run: |
-                    dbt compile
-                    mv -f target/manifest.json .
-                    dbt run --target QA
-                    
+                mv -Force target/manifest.json .
+                dbt run --target QA
             
