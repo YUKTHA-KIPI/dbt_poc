@@ -37,7 +37,7 @@ jobs:
          uses: actions/upload-artifact@v3
          with:
           name: dbt-compiled-artifacts
-          path: target/manifest.json
+          path: storage/manifest.json
           
        - name: Run dbt models
          run: dbt run --target QA
