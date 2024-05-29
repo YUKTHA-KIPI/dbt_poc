@@ -47,7 +47,7 @@ jobs:
        - name: Move artifacts to repository
          run: |
             mkdir -p ./target
-            mv ./target/* ./target/
+            mv -Force ./target/* ./target/
        - name: Commit and push changes
          env:
            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
