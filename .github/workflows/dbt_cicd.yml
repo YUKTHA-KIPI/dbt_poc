@@ -40,7 +40,6 @@ jobs:
           path: target/
           
        - name: Run dbt models
-         run: |
-                mv -Force target/manifest.json .
+         run: 
                 dbt run --target QA
             
