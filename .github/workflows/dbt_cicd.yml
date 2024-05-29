@@ -46,8 +46,8 @@ jobs:
            path: ./target
        - name: Move artifacts to repository
          run: |
-            mkdir -p ./dbt_target
-            mv ./target/* ./dbt_target/
+            mkdir -p ./target
+            mv ./target/* ./target/
        - name: Commit and push changes
          env:
            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
