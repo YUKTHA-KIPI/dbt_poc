@@ -58,5 +58,5 @@ jobs:
           git commit -m "Add dbt compiled artifacts"
           git push origin QA
        - name: Run dbt models
-         run: dbt run --target QA
+         run: dbt run --target QA --models state:modified --state .
             
