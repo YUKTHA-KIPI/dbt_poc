@@ -44,10 +44,12 @@ jobs:
          with:
            name: dbt-compiled-artifacts
            path: ./target
+           
        - name: Move artifacts to repository
          run: |
             mkdir -p ./target
             mv -f ./target/* ./target/
+            
        - name: Commit and push changes
          env:
            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -57,6 +59,7 @@ jobs:
           git add .
           git commit -m "Add dbt compiled artifacts"
           git push origin QA
+          
        - name: Run dbt models
          run: dbt run --target QA --models state:modified --state .
             
