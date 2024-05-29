@@ -34,8 +34,7 @@ jobs:
          run: dbt compile
          
        - name: Upload compiled artifacts
-       - run: echo hello > path/to/artifact/manifest.json
-       - uses: actions/upload-artifact@v4
+         uses: actions/upload-artifact@v3
          with:
           name: dbt-compiled-artifacts
           path: target/manifest.json
