@@ -44,10 +44,6 @@ jobs:
          with:
            name: dbt-compiled-artifacts
            path: ./target
-           
-       - name: Move artifacts to repository
-         run: |
-            git mv ./target/* ./dbt_target/
             
        - name: Commit and push changes
          env:
