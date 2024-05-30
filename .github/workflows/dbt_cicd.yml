@@ -48,7 +48,7 @@ jobs:
        - name: Move artifacts to repository
          run: |
             mkdir -p ./target
-            mv -f ./target/* ./target/
+            git mv -f ./target/* ./target/
             
        - name: Commit and push changes
          env:
