@@ -39,22 +39,14 @@ jobs:
           name: dbt-compiled-artifacts
           path: target/manifest.json
           
-       - name: Download artifacts
-         uses: actions/download-artifact@v3
-         with:
-           name: dbt-compiled-artifacts
-           path: ./target
-            
-       - name: Commit and push changes
-         env:
-           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+       - name: Download py file
          run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add .
-          git commit -m "Add dbt compiled artifacts"
-          git push origin QA
-          
-       - name: Run dbt models
-         run: dbt run --target QA --models state:modified --state .
-            
+               python manage_dbt_artifacts.py download
+               dbt build --select state:modified+ --defer --favor-state --state=. --target QA
+
+       - name: python
+         run: |
+                python manage_dbt_artifacts.py download
+                dbt run --select state:modified+ --defer --favor-state --state=. --target QA
+                python manage_dbt_artifacts.py load
+
