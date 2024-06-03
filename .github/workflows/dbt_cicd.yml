@@ -29,6 +29,7 @@ jobs:
            pip install dbt-snowflake
            pip install snowflake-snowpark-python
            pip install python-helpers
+           pip install helpers
            pip install python-utils
            dbt deps
 
