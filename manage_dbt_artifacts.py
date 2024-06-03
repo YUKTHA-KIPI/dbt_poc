@@ -18,7 +18,7 @@ def main():
     # Establish Snowflake session
     session = connection_utils.get_session()
     type = sys.argv[1]
-    artifacts_stage = "@dbt_internal.dbt_artifacts"
+    artifacts_stage = "@PUBLIC.dbt_artifacts"
 
     # Determine file path
     script_dir = os.path.dirname(os.path.abspath(__file__))
