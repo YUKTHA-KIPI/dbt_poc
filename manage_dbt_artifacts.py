@@ -15,7 +15,7 @@ def main():
     # Determine file path
     script_dir = os.path.dirname(os.path.abspath(__file__))
     dbt_project_dir = os.path.normpath(os.path.join(script_dir, '../../../transformation'))
-    file_path = os.path.join(dbt_project_dir, 'target/manifest.json')
+    file_path = ('target/manifest.json')
     logging.info(f"Script directory: {script_dir}")
     logging.info(f"DBT project directory: {dbt_project_dir}")
     logging.info(f"Manifest file path: {file_path}")
