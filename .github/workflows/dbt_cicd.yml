@@ -30,6 +30,7 @@ jobs:
            pip install snowflake-snowpark-python
            pip install python-helpers
            pip install python-utils
+           pip install -r requirements.txt
            dbt deps
 
        # dbt related commands here - run use --target prod/qa/dev to run for specific environments
