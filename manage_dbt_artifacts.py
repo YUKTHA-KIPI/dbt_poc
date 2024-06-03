@@ -3,7 +3,7 @@
 import sys
 import os
 import snowflake.snowpark as snowpark
-from helpers import connection_utils
+from helper import connection_utils
 import logging
 
 def main():
