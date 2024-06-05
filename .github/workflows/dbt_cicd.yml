@@ -40,12 +40,12 @@ jobs:
           name: dbt-compiled-artifacts
           path: target/manifest.json
           
-       - name: Download py file
+       - name: Dbt build
          run: |
                python manage_dbt_artifacts.py download
                dbt build --select state:modified+ --defer --favor-state --state=. --target QA
 
-       - name: python
+       - name: dbt run
          run: |
                 python manage_dbt_artifacts.py download
                 dbt run --select state:modified+ --defer --favor-state --state=. --target QA
