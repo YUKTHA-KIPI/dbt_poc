@@ -28,9 +28,6 @@ jobs:
          run: |
            pip install dbt-snowflake
            pip install snowflake-snowpark-python
-           pip install python-helpers
-           pip install helpers
-           pip install python-utils
            dbt deps
 
        # dbt related commands here - run use --target prod/qa/dev to run for specific environments
