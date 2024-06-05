@@ -14,7 +14,7 @@ def main():
     artifacts_stage = "@PUBLIC.dbt_internal"
     # Determine file path
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    dbt_project_dir =  os.path.normpath(os.path.join(script_dir, '../../../transformed'))
+    dbt_project_dir =  os.path.normpath(os.path.join(script_dir, '../transformed'))
     file_path = ('target/manifest.json')
     logging.info(f"Script directory: {script_dir}")
     logging.info(f"DBT project directory: {dbt_project_dir}")
