@@ -43,8 +43,8 @@ jobs:
        - name: Dbt build
          run: |
                python manage_dbt_artifacts.py download
-               dbt build --models state:modified+ --state=/data/dbt_poc/transformed  --target-path=/data/dbt_poc/target
-              
+               dbt build --select state:modified+ --defer --favor-state --state=. --target QA
+
 
        - name: dbt run
          run: |
