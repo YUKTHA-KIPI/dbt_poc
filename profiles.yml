@@ -4,9 +4,9 @@ dbt_hol:
     QA:
       type: snowflake
       ######## Please replace with your Snowflake account name
-      account: bm12759.ap-south-1.aws
+      account: kx10484.ap-south-1.aws
       
-      user: AMBYINT_TEST
+      user: AMBYINTTEST
       ######## Please replace with your Snowflake dbt user password
       password: Ambyint1234
       
@@ -20,7 +20,7 @@ dbt_hol:
     prod:
       type: snowflake
       ######## Please replace with your Snowflake account name
-      account: zr43462.eu-central-1
+      account: kx10484.ap-south-1.aws
       
       user: dbt_user
       ######## Please replace with your Snowflake dbt user password
@@ -36,7 +36,7 @@ dbt_hol:
     view:
       type: snowflake
       ######## Please replace with your Snowflake account name
-      account: zr43462.eu-central-1
+      account: kx10484.ap-south-1.aws
       
       user: dbt_user
       ######## Please replace with your Snowflake dbt user password
