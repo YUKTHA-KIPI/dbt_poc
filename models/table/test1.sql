@@ -7,11 +7,11 @@ with source_data as (
         first_name,
         last_name,
         SALARY,
-        DEPARTMENT_ID
+        DEPARTMENT_ID,
+     ID AS NULL
     from DBT.PUBLIC.EMPLOYEES
 
 )
-
 select *
 from source_data
 
