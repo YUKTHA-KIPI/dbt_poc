@@ -7,8 +7,7 @@ with source_data as (
         first_name,
         last_name,
         SALARY,
-        DEPARTMENT_ID,
-    null as ID
+        DEPARTMENT_ID
     from DBT.PUBLIC.EMPLOYEES
 
 )
