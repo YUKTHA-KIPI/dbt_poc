@@ -1,1 +1,9 @@
-CREATE TABLE IF NOT EXISTS DBT.PUBLIC.SAMPLE AS SELECT * FROM DBT.PUBLIC.EMPLOYEES
+with SAMPLE as (
+    select
+        EMPLOYEE_ID,
+        first_name,
+        last_name,
+        SALARY,
+        DEPARTMENT_ID
+    from DBT.PUBLIC.EMPLOYEES
+)
