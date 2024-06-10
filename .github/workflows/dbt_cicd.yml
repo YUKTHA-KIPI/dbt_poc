@@ -27,28 +27,12 @@ jobs:
        - name: Install dependencies
          run: |
            pip install dbt-snowflake
-           pip install snowflake-snowpark-python
            dbt deps
 
-       # dbt related commands here - run use --target prod/qa/dev to run for specific environments
-       - name: Run dbt compile
-         run: dbt compile
-         
-       - name: Upload compiled artifacts
-         uses: actions/upload-artifact@v3
-         with:
-          name: dbt-compiled-artifacts
-          path: target/manifest.json
-          
-       - name: Dbt build
-         run: |
-               python manage_dbt_artifacts.py download
-               dbt build --select state:modified+ --defer --favor-state --state=. --target QA
-
-
+ 
        - name: dbt run
          run: |
-                python manage_dbt_artifacts.py download
-                dbt run --select state:modified+ --defer --favor-state --state=. --target QA
-                python manage_dbt_artifacts.py load
+                
+                dbt run --target QA
+     
 
