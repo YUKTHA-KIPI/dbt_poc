@@ -1,9 +1,13 @@
-with SAMPLE as (
-    select
-        EMPLOYEE_ID,
-        first_name,
-        last_name,
-        SALARY,
-        DEPARTMENT_ID
-    from DBT.PUBLIC.EMPLOYEES
+{{ config(materialized='table') }}
+
+with source_data as (
+
+    select 1 as id
+    union all
+    select null as id
+
 )
+
+select *
+from source_data
+
