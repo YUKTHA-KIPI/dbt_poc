@@ -43,7 +43,7 @@ jobs:
            dbt deps
        - name: Run DBT Macro to Drop Tables
          run: |
-          dbt run-operation drop_tables --args '{"tables": ${{TABLE_NAME}}}'
+          dbt run-operation drop_tables --args '{"tables": ${{TABLE_NAME}} }'
  
        - name: dbt run
          run: |
