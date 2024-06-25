@@ -36,12 +36,17 @@ jobs:
           done
 
        - name: Use the variable
-         run: echo "The value of MY_VARIABLE is $MY_VARIABLE"
+         run: echo "TABLE NAME - $TABLE_NAME"
        - name: Install dependencies
          run: |
            pip install dbt-snowflake
            dbt deps
-
+       - name: Run DBT Macro to Drop Tables
+         run: |
+          tables=$TABLE_NAME
+          tables_array=(${tables//,/ })
+          tables_json=$(jq -n --argjson tables '[]' '$tables + [env.tables_array[]]')
+          dbt run-operation drop_tables --args "{\"tables\": $tables_json}"
  
        - name: dbt run
          run: |
