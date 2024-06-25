@@ -26,9 +26,14 @@ jobs:
            
        - name: Load environment variables
          run: |
+          echo "Loading environment variables from config.env"
           set -a
           source config.env
           set +a
+          # Exporting the variables to the GitHub Actions environment
+          for var in $(cat config.env | grep -v '^#' | sed 's/=.*//'); do
+            echo "$var=${!var}" >> $GITHUB_ENV
+          done
 
        - name: Use the variable
          run: echo "The value of MY_VARIABLE is $MY_VARIABLE"
