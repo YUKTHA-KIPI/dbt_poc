@@ -5,6 +5,6 @@
     on_configuration_change = 'apply'
 )}}
 WITH DIM_EVENT_MAPPING
-AS ( select * from DBT.PUBLIC.EMPLOYEES)
+AS ( select salary from DBT.PUBLIC.EMPLOYEES)
 SELECT * FROM DIM_EVENT_MAPPING
 
